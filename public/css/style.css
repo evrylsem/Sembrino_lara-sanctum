@@ -117,7 +117,7 @@ ul, li {
     background-color: var(--hover-color);
 } */
 
- .post-link .actions {
+.actions {
     text-decoration: underline;
     font-weight: 500;
  }
@@ -183,7 +183,7 @@ ul, li {
     -webkit-box-orient: vertical;
 }
 
-.post-link:hover {
+.link-card:hover {
     background-color: rgb(244, 244, 244);
 }
 

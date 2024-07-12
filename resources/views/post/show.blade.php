@@ -29,31 +29,31 @@
             </div>
         </form>
     @foreach ($posts as $post)
-    <a href="{{ route('post-detail', $post->id)}}">
-        <div class="post-card post-link">  
+    <a href="{{ route('post-detail', $post->id)}}" class="link-card">
+        <div class="post-card">  
             <div class="d-flex justify-content-between post-index align-items-center mb-3 border-bottom">
                 <div>
                     <span class="post-owner mb-2">{{ $post->user->name }}</span>
                     
                 </div>
                 <div>
-                    <span class="post-time mb-2">{{ $post->created_at->format('M d, Y h:i A') }}</span> 
-                    @can('update', $post)
-                        <a href="{{ route('edit', $post->id) }}" class="actions edit-action">Edit</a> • 
-                    @endcan 
-                    @can('delete', $post)
-                        <form action="{{ route('destroy', $post->id) }}" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this post?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="actions del-action btn btn-link p-0">Delete</button>
-                        </form>
-                    @endcan
+                    <span class="post-time mb-2">{{ $post->created_at->format('M d, Y h:i A') }}</span>
                 </div>
             </div>
             <div>
                 <p class="post-title">{{$post->title}}</p>
                 <p class="post-content">{{$post->body}}</p>
-            </div>  
+            </div> 
+            @can('update', $post)
+                <a href="{{ route('edit', $post->id) }}" class="actions edit-action">Edit</a> • 
+            @endcan 
+            @can('delete', $post)
+                <form action="{{ route('destroy', $post->id) }}" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this post?');">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="actions del-action btn btn-link p-0">Delete</button>
+                </form>
+            @endcan
         </div>
     </a>
         
