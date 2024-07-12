@@ -29,8 +29,8 @@
             </div>
         </form>
     @foreach ($posts as $post)
-    <a href="{{ route('post-detail', $post->id)}}" class="link-card">
-        <div class="post-card">  
+    <a href="{{ route('post-detail', $post->id)}}" class="">
+        <div class="post-card link-card">  
             <div class="d-flex justify-content-between post-index align-items-center mb-3 border-bottom">
                 <div>
                     <span class="post-owner mb-2">{{ $post->user->name }}</span>
