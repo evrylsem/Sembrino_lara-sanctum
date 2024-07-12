@@ -11,7 +11,12 @@
 </head>
 <body>
     @if (Auth::check())
-    <div class="header mb-3 d-flex align-items-center justify-content-end">
+    <div class="header mb-3 d-flex align-items-center justify-content-between">
+        <nav>
+            <ul class="d-flex">
+                <li class="nav-item"><a href="@yield('back-link')" class=" d-flex align-items-center"><i class='bx bx-left-arrow-alt fs-3' ></i> Back</a></li>
+            </ul>
+        </nav>
         <nav class="">
             <ul class="d-flex">
                 <li class="nav-item user-index"><span>{{ Auth::user()->name}}</span></li>

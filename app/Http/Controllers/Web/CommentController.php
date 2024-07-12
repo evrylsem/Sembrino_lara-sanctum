@@ -22,9 +22,10 @@ class CommentController extends Controller
             'body' => $request->body,
         ]);
 
-        return redirect()->route('posts.show', $post->id);
+        return redirect()->route('post-detail', $post->id);
     }
 
+    
     public function update(Request $request, Comment $comment)
     {
         Gate::authorize('update', $comment);
@@ -35,8 +36,9 @@ class CommentController extends Controller
 
         $comment->update($request->only('body'));
 
-        return redirect()->route('posts.show', $comment->post_id);
+        return redirect()->back();
     }
+
 
     public function destroy(Comment $comment)
     {
@@ -44,6 +46,6 @@ class CommentController extends Controller
 
         $comment->delete();
 
-        return redirect()->route('posts.show', $comment->post_id);
+        return redirect()->back();
     }
 }

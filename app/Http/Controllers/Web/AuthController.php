@@ -44,7 +44,7 @@ class AuthController extends Controller
              $request->session()->regenerate();
              $user->createToken('API-TOKEN')->plainTextToken;
 
-             return redirect()->intended('/home');
+             return redirect()->intended('/posts');
        }
 
        return redirect()->route('login');
