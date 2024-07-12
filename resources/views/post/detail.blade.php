@@ -48,11 +48,11 @@
                             <span class="comment-time">{{ $comment->created_at->format('M d, Y h:i A') }}</span>
                             @can('delete', $comment)
                             |
-                                <form action="{{ route('comment-delete', ['comment' => $comment->id]) }}" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this post?');">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="actions del-action btn btn-link p-0">Delete</button>
-                                </form>
+                            <form action="{{ route('comment-delete', ['comment' => $comment->id]) }}" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this post?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="actions del-action btn btn-link p-0">Delete</button>
+                            </form>
                             @endcan
                         </div>
                     </div>

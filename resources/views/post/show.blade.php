@@ -45,7 +45,7 @@
                 <p class="post-content">{{$post->body}}</p>
             </div> 
             @can('update', $post)
-                <a href="{{ route('edit', $post->id) }}" class="actions edit-action">Edit</a> | 
+                <a href="{{ route('edit', $post->id) }}" class="actions edit-action btn btn-link p-0">Edit</a> | 
             @endcan 
             @can('delete', $post)
                 <form action="{{ route('destroy', $post->id) }}" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this post?');">
